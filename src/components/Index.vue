@@ -160,10 +160,11 @@ export default {
     },
     getProduct: function(category) {
       var that = this;
+      let id=parseInt(that.getCookie('shopId')) ;
       let para = {
         pn: 1,
         size: 8,
-        id: 3,
+        id: id,
         classify_id: category
       };
       this.$http.post("/api/admin/seller/search", para).then(function(res) {
@@ -175,6 +176,15 @@ export default {
           return;
         }
       });
+    },
+    getCookie: function(cname) {
+      var name = cname + "=";
+      var ca = document.cookie.split(";");
+      for (var i = 0; i < ca.length; i++) {
+        var c = ca[i].trim();
+        if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+      }
+      return "";
     },
     toProductDetail: function(good) {
       this.$store.dispatch("setGoodId", good.sid);

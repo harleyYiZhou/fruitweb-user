@@ -78,7 +78,7 @@
               <el-table-column label="操作" align="center">
                 <template scope="scope">
                   <el-button size="small" v-if="orderType===0" @click="handleOperate(scope.$index, scope.row)">付款</el-button>
-                  <el-button size="small" v-if="orderType===1" @click="handleOperate(scope.$index, scope.row)">发货</el-button>
+                  <!-- <el-button size="small" v-if="orderType===1" @click="handleOperate(scope.$index, scope.row)">发货</el-button> -->
                   <el-button size="small" v-if="orderType===2" @click="handleOperate(scope.$index, scope.row)">确认收货</el-button>
                   <el-button size="small" v-if="orderType===3" @click="handleOperate(scope.$index, scope.row)">评价</el-button>
                   <el-button size="small" @click="handleEdit(scope.$index, scope.row)">详情</el-button>

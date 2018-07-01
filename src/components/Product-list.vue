@@ -119,10 +119,11 @@ export default {
     },
     getGoods: function() {
       var that = this;
+      let id=parseInt(that.getCookie('shopId')) ;
       let para = {
         pn: 1,
         size: 20,
-        id: 3,
+        id: id,
         classify_id: this.category
       };
       let options = {};
@@ -134,6 +135,15 @@ export default {
           loadingInstance.close();
         }
       });
+    },
+    getCookie: function(cname) {
+      var name = cname + "=";
+      var ca = document.cookie.split(";");
+      for (var i = 0; i < ca.length; i++) {
+        var c = ca[i].trim();
+        if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+      }
+      return "";
     },
     getTotal: function() {
       var that = this;

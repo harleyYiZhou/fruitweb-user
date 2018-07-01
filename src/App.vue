@@ -38,7 +38,7 @@
                 </el-form>
                 <div slot="footer" class="dialog-footer">
                     <el-button @click="dialogFormVisible = false">取 消</el-button>
-                    <el-button type="primary" @click="selectShop ">确 定</el-button>
+                    <el-button type="primary" @click="selectShop1">确 定</el-button>
                 </div>
             </el-dialog>
         </div>
@@ -123,9 +123,10 @@ export default {
     change: function(val) {
       this.dialogFormVisible = val;
     },
-    selectShop: function() {
+    selectShop1: function() {
       this.dialogFormVisible = false;
-      document.cookie = "shopName=" + this.selectCity;
+      document.cookie = "shopName=" + this.selectShop.shop_name;
+      this.setCookie('shopId',this.selectShop.shop_id);
       window.location.assign('index.html');
     },
     getCookie: function(cname) {
